@@ -7,15 +7,19 @@
 
 
 <p id="notice"><%= notice %></p>
-
-<h1><%= @article.body %></h1>
-
-<p style="alignment: right">
-  <%=  image_tag(@article.image_url) %>
+<h4>
+  <%= @article.title %>
+</h4>
+<p>
+  <%=  image_tag(@article.image_url, :style => 'float:right; padding: 5px')%>
   <%= @article.body %>
 </p>
 
 <% if user_signed_in? %>
-<%= link_to 'Edit', edit_article_path(@article) %> |
+  <div class="btn btn-light" style="float: right">
+    <%= link_to 'Back', articles_path %>
+  </div>
+  <div class="btn btn-light" style="float: right; margin-right: 10px">
+    <%= link_to 'Edit', edit_article_path(@article) %>
+  </div>
 <% end %>
-<%= link_to 'Back', articles_path %>
